@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TestEventDetails from './components/eventdetails';
 
 function App() {
-  return (
-    <>
-      <h1>Hello Chris and Henry!</h1>
+  const [showEventDetails, setShowEventDetails] = useState(false);
 
-      <TestEventDetails />
-    </>
+  const handleClick = () => {
+    setShowEventDetails(!showEventDetails);
+  };
+
+  return (
+    <div>
+      <h1>test</h1>
+      <p
+        onClick={handleClick}
+        className="cursor-pointer badge badge-primary"
+      >
+        Event-Titel Event-Datum
+      </p>
+      {showEventDetails && <TestEventDetails />}
+    </div>
   );
 }
 
