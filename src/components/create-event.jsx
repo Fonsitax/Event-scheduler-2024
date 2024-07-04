@@ -93,22 +93,7 @@ export default function CreateEvent() {
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
           />
         </div>
-        <div className="mb-6">
-          <label
-            htmlFor="organizerId"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Veranstalter ID:
-          </label>
-          <input
-            type="text"
-            id="organizerId"
-            name="organizerId"
-            value={formData.organizerId}
-            onChange={handleChange}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
-          />
-        </div>
+        <div className="mb-6"></div>
         <button
           type="submit"
           className="w-full py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-md"
