@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function SignIn() {
   return (
     <div className="hero bg-base-200 min-h-screen">
@@ -38,7 +40,7 @@ export default function SignIn() {
                   href="#"
                   className="label-text-alt link link-hover"
                 >
-                  Forgot password?
+                  Forgot Login?
                 </a>
               </label>
             </div>
