@@ -3,7 +3,7 @@ import React from 'react';
 function EventDetails() {
   return (
     <>
-      <div className="card bg-base-100 w-96 shadow-xl  ">
+      <div className="card bg-base-100 w-96 shadow-xl">
         <div className="card-body justify-center">
           <h2 className="card-title badge-accent badge-outline">
             Eventtitel

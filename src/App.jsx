@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div>
-      <h1>test</h1>
+      <h1>Überschrift</h1>
       <p
         onClick={handleClick}
         className="cursor-pointer badge badge-primary"
