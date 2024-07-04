@@ -1,12 +1,14 @@
-function App() {
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Link,
+  Outlet,
+  Route,
+  RouterProvider,
+} from 'react-router-dom';
 
-  return (
-    <>
-      
-      <h1>Hello Chris and Henry!</h1>
-      
-    </>
-  )
-}
+const App = () => {
+  return <RouterProvider router={router} />;
+};
 
-export default App
+export default App;
