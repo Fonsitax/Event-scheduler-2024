@@ -113,7 +113,7 @@ export default function CreateEvent() {
           type="submit"
           className="w-full py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-md"
         >
-          Registrieren
+          Eintragen
         </button>
       </form>
     </div>
