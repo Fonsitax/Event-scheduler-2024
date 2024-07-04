@@ -6,7 +6,8 @@ export default function CreateEvent() {
     description: '',
     date: '',
     location: '',
-    organizerId: '',
+    id: 1, // ID für jedes Element dynamisch erzeugt
+    organizerId: 22,
   });
 
   const handleChange = (e) => {
