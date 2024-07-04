@@ -1,25 +1,15 @@
-import React, { useState } from 'react';
-import TestEventDetails from './components/eventdetails';
+import { useState } from 'react';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Link,
+  Outlet,
+  Route,
+  RouterProvider,
+} from 'react-router-dom';
 
-function App() {
-  const [showEventDetails, setShowEventDetails] = useState(false);
-
-  const handleClick = () => {
-    setShowEventDetails(!showEventDetails);
-  };
-
-  return (
-    <div>
-      <h1>Überschrift</h1>
-      <p
-        onClick={handleClick}
-        className="cursor-pointer badge badge-primary"
-      >
-        Event-Titel Event-Datum
-      </p>
-      {showEventDetails && <TestEventDetails />}
-    </div>
-  );
-}
+const App = () => {
+  return <RouterProvider router={router} />;
+};
 
 export default App;
