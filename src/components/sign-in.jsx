@@ -5,6 +5,11 @@ export default function SignIn() {
   const [password, setpassword] = useState('');
   const [mail, setmail] = useState('');
 
+  const handleClick = (event) => {
+    event.preventDefault(); // Verhindert das Standardverhalten des Links
+    window.alert('Testzugang! Email: user@example.com Passwort: password123 ');
+  };
+
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -52,6 +57,7 @@ export default function SignIn() {
                 <a
                   href="#"
                   className="label-text-alt link link-hover"
+                  onClick={handleClick}
                 >
                   Forgot Login?
                 </a>
