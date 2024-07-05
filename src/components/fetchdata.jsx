@@ -63,7 +63,28 @@ export const userlogin = async (mail, passw) => {
 
 // Event abrufen
 
-export const catchAllEvents = async () => {};
+export const catchEvent = async (id) => {
+  try {
+    const response = await fetch(`http://localhost:3001/api/events/${id}`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    const data = await response.json();
+
+    console.log(data);
+
+    /*     if (data.error) {
+      window.alert(data.error);
+    } else {
+      window.alert(`Funktioniert  !`);
+    } */
+
+    return data;
+  } catch (error) {
+    console.error('Fehler beim Abrufen der Daten von API1:', error);
+  }
+};
 
 // Event hinzufügen
 

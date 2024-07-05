@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { useState, useEffect } from 'react';
+import { catchEvent } from './fetchdata';
 
 export default function HomePage() {
   const [events, setEvents] = useState([]);
@@ -46,6 +47,10 @@ export default function HomePage() {
           <div
             key={event.id}
             className="card card-bordered shadow-lg hover:shadow-xl transition-shadow duration-300"
+            /* onClick={(e) => {
+              e.preventDefault();
+              const data = catchEvent(event.id);
+            }} */
           >
             <Link to={`/event-details/${event.id}`}>
               <div className="card-body p-4 border-2 rounded-md">
@@ -60,6 +65,7 @@ export default function HomePage() {
                 <p>{event.description}</p>
               </div>
             </Link>
+            ;
           </div>
         ))}
       </div>
