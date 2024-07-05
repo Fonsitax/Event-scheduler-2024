@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { setNewEvent } from './fetchdata';
 
 export default function CreateEvent() {
   const [formData, setFormData] = useState({
@@ -6,7 +7,6 @@ export default function CreateEvent() {
     description: '',
     date: '',
     location: '',
-    id: 1, // ID für jedes Element dynamisch erzeugt
     organizerId: 22,
   });
 
@@ -19,9 +19,19 @@ export default function CreateEvent() {
   };
 
   const handleSubmit = (e) => {
+    const token = localStorage.getItem('token');
+
+    if (token === null) {
+      window.alert('Bitte zuerst einloggen !');
+
+      return;
+    }
     e.preventDefault();
+
+    setNewEvent(formData);
+
     // Hier könntest du die Formulardaten absenden, z.B. an ein API
-    console.log('Form data submitted:', formData);
+    //console.log('Form data submitted:', formData);
   };
 
   return (

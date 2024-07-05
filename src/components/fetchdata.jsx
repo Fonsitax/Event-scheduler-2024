@@ -44,7 +44,7 @@ export const userlogin = async (mail, passw) => {
 
     localStorage.clear();
 
-    localStorage.setItem(mail, token);
+    localStorage.setItem('token', token);
     /*     console.log(response);
     console.log(data.token);
     console.log(typeof data); */
@@ -67,4 +67,29 @@ export const catchAllEvents = async () => {};
 
 // Event hinzufügen
 
-export const setNewEvent = async () => {};
+export const setNewEvent = async (formData) => {
+  const token = localStorage.getItem('token');
+
+  try {
+    const response = await fetch('http://localhost:3001/api/events', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    if (data.error) {
+      window.alert(data.error);
+    } else {
+      window.alert(`Das Event : ${formData.title}  wurde hinzugefügt !`);
+    }
+
+    return;
+  } catch (error) {
+    console.error('Fehler beim Abrufen der Daten von API1:', error);
+  }
+};
