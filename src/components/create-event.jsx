@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import { setNewEvent } from './fetchdata';
 
-
 export default function CreateEvent() {
   const [formData, setFormData] = useState({
     title: '',
@@ -21,7 +20,6 @@ export default function CreateEvent() {
   };
 
   const handleSubmit = (e) => {
-
     const token = localStorage.getItem('token');
 
     if (token === null) {
@@ -35,7 +33,6 @@ export default function CreateEvent() {
 
     // Hier könntest du die Formulardaten absenden, z.B. an ein API
     //console.log('Form data submitted:', formData);
-
   };
 
   return (

@@ -5,14 +5,12 @@ import React, { useState, useEffect } from 'react';
 // User anlegen
 
 export const addNewUser = async (mail, passw) => {
-
   try {
     const response = await fetch('http://localhost:3001/api/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: mail, password: passw }),
     });
-
 
     const data = await response.json();
 
@@ -25,14 +23,12 @@ export const addNewUser = async (mail, passw) => {
     }
 
     return;
-
   } catch (error) {
     console.error('Fehler beim Abrufen der Daten von API1:', error);
   }
 };
 
 // User login - Abfrage ob User existier -
-
 
 export const userlogin = async (mail, passw) => {
   try {
@@ -65,13 +61,32 @@ export const userlogin = async (mail, passw) => {
   }
 };
 
-
 // Event abrufen
 
-export const catchAllEvents = async () => {};
+export const catchEvent = async (id) => {
+  try {
+    const response = await fetch(`http://localhost:3001/api/events/${id}`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    const data = await response.json();
+
+    console.log(data);
+
+    /*     if (data.error) {
+      window.alert(data.error);
+    } else {
+      window.alert(`Funktioniert  !`);
+    } */
+
+    return data;
+  } catch (error) {
+    console.error('Fehler beim Abrufen der Daten von API1:', error);
+  }
+};
 
 // Event hinzufügen
-
 
 export const setNewEvent = async (formData) => {
   const token = localStorage.getItem('token');
@@ -99,4 +114,3 @@ export const setNewEvent = async (formData) => {
     console.error('Fehler beim Abrufen der Daten von API1:', error);
   }
 };
-

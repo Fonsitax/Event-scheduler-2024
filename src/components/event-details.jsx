@@ -1,8 +1,18 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { catchEvent } from './fetchdata';
+import { useEffect, useState } from 'react';
 
 export default function EvenDetails() {
+  const { id } = useParams();
+
+  const [event, setevent] = useState({});
+
+  useEffect(() => {
+    catchEvent(id).then((data) => setevent(data));
+  }, [id]);
+
   // Dummy Daten
-  const events = [
+  /* const events = [
     {
       id: 1,
       title: 'Event 1',
@@ -11,7 +21,7 @@ export default function EvenDetails() {
       date: '2023-04-01',
       location: 'Adress1',
     },
-  ];
+  ]; */
 
   return (
     <div className="min-h-screen flex items-center justify-center p-6">
@@ -20,27 +30,19 @@ export default function EvenDetails() {
           Event im Detail:
         </h2>
         <div className=" flex items-top justify-center ">
-          {events.map((event) => (
-            <Link
-              to={'/'}
-              key={event.id}
-              className="card card-bordered shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="card-body p-4 border-2 rounded-md max-w-66">
-                <img
-                  src="https://picsum.photos/seed/picsum/500/200"
-                  alt="Event Image"
-                  className="mb-4 mx-4"
-                />
-                <h2 className="card-title font-semibold">{event.title}</h2>
-                <p className="mb-4">Date: {event.date}</p>
-                <label className="font-semibold">Description:</label>
-                <p className="mb-4">{event.description}</p>
-                <label className="font-semibold">Location:</label>
-                <p>{event.location}</p>
-              </div>
-            </Link>
-          ))}
+          <div className="card-body p-4 border-2 rounded-md max-w-66">
+            <img
+              src="https://picsum.photos/seed/picsum/500/200"
+              alt="Event Image"
+              className="mb-4 mx-4"
+            />
+            <h2 className="card-title font-semibold">{event.title}</h2>
+            <p className="mb-4">Date: {event.date}</p>
+            <label className="font-semibold">Description:</label>
+            <p className="mb-4">{event.description}</p>
+            <label className="font-semibold">Location:</label>
+            <p>{event.location}</p>
+          </div>
         </div>
       </div>
     </div>
