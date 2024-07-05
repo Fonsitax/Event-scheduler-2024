@@ -1,6 +1,16 @@
 import { Link, Outlet } from 'react-router-dom';
 
 export default function Root() {
+
+  const handleLogout = () => {
+    const token = localStorage.getItem('token');
+    if (token === null) return;
+    localStorage.clear();
+    window.alert('Sie wurden abgemeldet !');
+    // Optional: Weitere Logout-Logik hinzufügen
+  };
+
+
   return (
     <>
       <nav className="bg-blue-800 p-4 fixed w-full top-0 z-10">
@@ -36,6 +46,15 @@ export default function Root() {
             >
               Sign Up
             </Link>
+
+            <Link
+              to="/"
+              className="text-gray-300 hover:text-white"
+              onClick={handleLogout}
+            >
+              Logout
+            </Link>
+
           </div>
         </div>
       </nav>

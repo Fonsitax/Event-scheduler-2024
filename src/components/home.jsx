@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+
 import { useState, useEffect } from 'react';
 
 export default function HomePage() {
@@ -50,6 +51,7 @@ export default function HomePage() {
             <div className="card-body p-4 border-2 rounded-md">
               <img
                 src="https://picsum.photos/500/200"
+
                 alt="Event Image"
                 className="mb-4"
               />
@@ -59,7 +61,7 @@ export default function HomePage() {
               <p>{event.description}</p>
             </div>
           </Link>
-          </div>
+
         ))}
       </div>
     </div>
