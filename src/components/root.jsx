@@ -44,6 +44,7 @@ export default function Root() {
             >
               Sign Up
             </Link>
+
             <Link
               to="/"
               className="text-gray-300 hover:text-white"
